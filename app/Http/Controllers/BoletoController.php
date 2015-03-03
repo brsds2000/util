@@ -38,8 +38,8 @@ class BoletoController extends Controller {
 
 		$dadosFormulario =\Request::input();
 
-		dd($dadosFormulario);
-
+		//dd($dadosFormulario);
+		
 		if ($dadosFormulario['instituicao'] == 1) {
 			$nomIes = 'Centro Universitário de Belo Horizonte';
 			$cedenteIes = 'IMEC - Instituto Mineiro de Educação e Cultura UNI-BH S/A';
@@ -50,6 +50,8 @@ class BoletoController extends Controller {
 			$nomeImagemIes = 'saojudas.jpg';
 
 		}
+
+
 
 		switch ($dadosFormulario['curso']) {
 		    case 1:
@@ -62,12 +64,13 @@ class BoletoController extends Controller {
        			$curso = "História"; 
 		}
 
+
 		$nome = $dadosFormulario["nome"];
 		$endereco = $dadosFormulario["endereco"];
 		$cep = $dadosFormulario["cep"];
 		$cidade = $dadosFormulario["cidade"];
 		$estado = $dadosFormulario["estado"];
-		$cpf = $dadosFormulario["cpf"];
+	//	$cpf = $dadosFormulario["cpf"];
 
 		$ano = date("Y");
 		$mes = date("m");
@@ -82,15 +85,15 @@ class BoletoController extends Controller {
 		$fimRa = rand(1999, 7999);
 
 
-		/*
-		print('</br> ano'. $ano);
-		print('</br> mes'. $mes);
-		print('</br> parcela'. $parcela);
-		print('</br> semestre'. $semestre);
-		print('</br> fimRa'. $fimRa);
+		
+		//print('</br> ano'. $ano);
+		//print('</br> mes'. $mes);
+		//print('</br> parcela'. $parcela);
+		//print('</br> semestre'. $semestre);
+		//print('</br> fimRa'. $fimRa);
 
-		dd();
-*/
+		//dd();
+
 		// Matricula randômica
 
 		//Data atraves da data atual

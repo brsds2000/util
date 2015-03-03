@@ -23,7 +23,7 @@
 	    {!! Form::text('cidade' ,'',array('placeholder' => 'Cidade','class' =>'form-control'))!!}
 
 	    {!! Form::label('estado', 'Estado (Sigla)')!!}
-	    {!! Form::text('cidade' ,'',array('placeholder' => 'Estado','class' =>'form-control'))!!}
+	    {!! Form::text('estado' ,'',array('placeholder' => 'Estado','class' =>'form-control'))!!}
 
 	    {!! Form::label('instituicao', 'Instituição')!!}
 	    {!! Form::select('instituicao' ,array('1' => 'Uni bh', '2'=> 'São Judas'), '1',array('class' =>'form-control'))!!}
