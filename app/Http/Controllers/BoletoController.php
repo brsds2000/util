@@ -44,10 +44,12 @@ class BoletoController extends Controller {
 			$nomIes = 'Centro Universitário de Belo Horizonte';
 			$cedenteIes = 'IMEC - Instituto Mineiro de Educação e Cultura UNI-BH S/A';
 			$nomeImagemIes = 'unibh.jpg';
+			$campus = 'ES';
 		}else{
 			$nomIes = 'Alterar para nome completo sao judas';
 			$cedenteIes = 'Alterar para cedente são judas';
 			$nomeImagemIes = 'saojudas.jpg';
+			$campus = 'CA';
 
 		}
 
@@ -57,7 +59,7 @@ class BoletoController extends Controller {
 		    case 1:
 		        $curso = "Ciência da Computação";
 		        break;
-		    case 1:
+		    case 2:
 		        $curso = "Engenharia de produção";
 		        break;
 		    default:
@@ -70,7 +72,7 @@ class BoletoController extends Controller {
 		$cep = $dadosFormulario["cep"];
 		$cidade = $dadosFormulario["cidade"];
 		$estado = $dadosFormulario["estado"];
-	//	$cpf = $dadosFormulario["cpf"];
+		$cpf = $dadosFormulario["cpf"];
 
 		$ano = date("Y");
 		$mes = date("m");
@@ -99,7 +101,10 @@ class BoletoController extends Controller {
 		//Data atraves da data atual
 
 
-		return view('boleto/boleto');
+		return view('boleto/boleto',compact('nomIes','cedenteIes','nomeImagemIes',
+											'curso','nome','endereco','cep',
+											'cidade','estado','ano','mes','parcela',
+											'semestre','fimRa','cpf','campus'));
 	}
 
 	public function getGerar()

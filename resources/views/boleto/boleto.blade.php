@@ -93,12 +93,12 @@ div.#dvBoleta {
     <tbody><tr> 
       <td width="836" height="59"> <table width="738" height="59" border="0" cellpadding="0" cellspacing="0" class="celdir">
           <tbody><tr> 
-            <td width="60" height="58" class="cel"><strong><img src="/assets/img/unibh.jpg" width="145" height="45"></strong></td>
+            <td width="60" height="58" class="cel"><strong><img src="/assets/img/{{{$nomeImagemIes}}}" width="145" height="45"></strong></td>
             <td width="80%"><table width="591" height="58" border="0" cellpadding="0" cellspacing="0" class="celdir">
                 <tbody><tr> 
                   <td width="11">&nbsp;</td>
 
-                  <td width="580" height="19"><font size="2" face="Arial, Helvetica, sans-serif"><strong><font size="3" face="Arial, Helvetica, sans-serif"><strong>IMEC - Instituto Mineiro de Educação e Cultura UNI-BH S/A</strong></font></strong></font> 
+                  <td width="580" height="19"><font size="2" face="Arial, Helvetica, sans-serif"><strong><font size="3" face="Arial, Helvetica, sans-serif"><strong>{{{$cedenteIes}}}</strong></font></strong></font> 
                   </td>
                 </tr>
                 <tr> 
@@ -108,7 +108,7 @@ div.#dvBoleta {
                 </tr>
                 <tr> 
                   <td height="19">&nbsp;</td>
-                  <td><strong><font size="2" face="Arial, Helvetica, sans-serif"><strong><font size="2" face="Arial, Helvetica, sans-serif">Centro Universitário de Belo Horizonte</font></strong></font></strong></td>
+                  <td><strong><font size="2" face="Arial, Helvetica, sans-serif"><strong><font size="2" face="Arial, Helvetica, sans-serif">{{{$nomIes}}}</font></strong></font></strong></td>
                 </tr>
               </tbody></table></td>
           </tr>
@@ -116,19 +116,19 @@ div.#dvBoleta {
     </tr>
     <tr> 
       <td height="12"><font size="1" face="Arial, Helvetica, sans-serif"><strong>ALUNO:</strong> 
-        11116459  -Lauro Viotti Alexandre</font></td>
+        1111{{{$fimRa}}}  -{{{$nome}}}</font></td>
     </tr>
     <tr> 
       <td height="37"> <table width="738" height="37" border="0" cellpadding="0" cellspacing="0" class="celdir">
           <tbody><tr> 
             <td width="369" height="12"><strong><font size="1" face="Arial, Helvetica, sans-serif">CURSO: 
-              </font></strong><font size="1" face="Arial, Helvetica, sans-serif">Engenharia Civil</font></td>
+              </font></strong><font size="1" face="Arial, Helvetica, sans-serif">{{{$curso}}}</font></td>
             <td width="369"><strong><font size="1" face="Arial, Helvetica, sans-serif">TURNO:</font></strong><font size="1" face="Arial, Helvetica, sans-serif"> 
               noite </font></td>
           </tr>
           <tr> 
             <td height="12"><strong><font size="1" face="Arial, Helvetica, sans-serif">CAMPUS:</font></strong><font size="1" face="Arial, Helvetica, sans-serif"> 
-              ES         </font></td>
+              {{{$campus}}}         </font></td>
             <td><strong><font size="1" face="Arial, Helvetica, sans-serif">OCORRÊNCIA: 
               </font></strong><font size="1" face="Arial, Helvetica, sans-serif">Primeiro Período</font></td>
           </tr>
@@ -462,7 +462,7 @@ div.#dvBoleta {
                 </tr>
                 <tr> 
                   <td height="11"><font size="1" face="Arial, Helvetica, sans-serif"><strong> 
-                    11116459  -Lauro Viotti Alexandre / Engenharia Civil Parc. 5- 2012/1</strong></font></td>
+                    1111{{{$fimRa}}}  -{{{$nome}}} / {{{$curso}}} Parc. 5- 2012/1</strong></font></td>
                 </tr>
               </tbody></table></td>
           </tr>
@@ -474,7 +474,7 @@ div.#dvBoleta {
                         <td width="552" height="12"><font size="1" face="Courier New, Courier, mono">CEDENTE</font></td>
                       </tr>
                       <tr> 
-                        <td height="11"><font size="1" face="Arial, Helvetica, sans-serif"><strong>IMEC - Instituto Mineiro de Educação e Cultura UNI-BH S/A</strong></font></td>
+                        <td height="11"><font size="1" face="Arial, Helvetica, sans-serif"><strong>{{{$cedenteIes}}}</strong></font></td>
                       </tr>
                     </tbody></table></td>
                   <td width="185"> <table width="185" height="24" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC" class="celdir">
@@ -705,7 +705,7 @@ div.#dvBoleta {
                   <td width="552" height="12"><font size="1" face="Courier New, Courier, mono">CEDENTE</font></td>
                 </tr>
                 <tr> 
-                  <td height="11"><font size="1" face="Arial, Helvetica, sans-serif"><strong>IMEC - Instituto Mineiro de Educação e Cultura UNI-BH S/A</strong></font></td>
+                  <td height="11"><font size="1" face="Arial, Helvetica, sans-serif"><strong>{{{$cedenteIes}}}</strong></font></td>
                 </tr>
               </tbody></table></td>
             <td width="185"> <table width="185" height="24" border="0" cellpadding="0" cellspacing="0" class="celdir">
@@ -954,18 +954,18 @@ div.#dvBoleta {
           </tr>
           <tr> 
             <td height="12"><strong><font size="1" face="Courier New, Courier, mono"><strong> 
-              Lauro Viotti Alexandre Parc. 5 - 2012/1</strong></font></strong></td>
+              {{{$nome}}} Parc. 5 - 2012/1</strong></font></strong></td>
             <td><strong><font size="1" face="Courier New, Courier, mono"><strong>&nbsp;</strong></font></strong></td>
           </tr>
           <tr> 
-            <td height="12"><font size="1" face="Courier New, Courier, mono"><strong>Rua Stella Hanriot - Apto. 101 - Buritis</strong></font></td>
+            <td height="12"><font size="1" face="Courier New, Courier, mono"><strong>{{{$endereco}}}</strong></font></td>
             <td><strong><font size="1" face="Courier New, Courier, mono"><strong>&nbsp;</strong></font></strong></td>
           </tr>
           <tr> 
             <td height="12"><font size="1" face="Courier New, Courier, mono"><strong>CEP: 
-              30.575-120 Belo Horizonte - MG</strong></font></td>
+              {{{$cep}}} {{{$cidade}}} - {{$estado}}</strong></font></td>
             <td><font size="1" face="Courier New, Courier, mono"><strong>CPF: 
-              11849159629</strong></font></td>
+              {{{$cpf}}}</strong></font></td>
           </tr>
         </tbody></table></td>
     </tr>
