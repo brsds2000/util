@@ -38,6 +38,39 @@ class BoletoController extends Controller {
 
 		$dadosFormulario =\Request::input();
 
+		$rules = array('nome' => 'required|min:10',
+						'cpf' => 'required|min:11|max:14',
+						'endereco' => 'required',
+						'cep' => 'required|min:8|max:11',
+						'cidade' => 'required',
+						'estado' => 'required|min:2|max:2',
+						'instituicao' => 'required',
+						'curso' =>'required'
+
+			);
+
+		$niceNames = array(
+		    'nome' => 'Nome',
+		    'cpf' => 'CPF',
+			'endereco' => 'Endereço',
+			'cep' => 'CEP',
+			'cidade' => 'Cidade',
+			'estado' => 'Estado',
+			'instituicao' => 'Instituição',
+			'curso' =>'Curso'
+		);
+
+		
+		
+
+		 $validator = \Validator::make(\Request::input(), $rules);
+		 $validator->setAttributeNames($niceNames); 
+
+		 if ($validator->fails())
+     	{
+         	return \Redirect::to('boleto\gerar')->withErrors($validator)->withInput();
+     	}
+
 		//dd($dadosFormulario);
 		
 		if ($dadosFormulario['instituicao'] == 1) {

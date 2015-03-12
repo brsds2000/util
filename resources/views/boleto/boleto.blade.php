@@ -134,7 +134,7 @@ div.#dvBoleta {
           </tr>
           <tr> 
             <td height="12"><strong><font size="1" face="Arial, Helvetica, sans-serif">PERÍODO 
-              LETIVO: </font></strong><font size="1" face="Arial, Helvetica, sans-serif">2012/1</font></td>
+              LETIVO: </font></strong><font size="1" face="Arial, Helvetica, sans-serif">{{{$ano}}}/{{{$semestre}}}</font></td>
             <td><strong><font size="1" face="Arial, Helvetica, sans-serif">VERSÃO 
               GRADE: </font></strong><font size="1" face="Arial, Helvetica, sans-serif">ENC00002</font></td>
           </tr>
@@ -144,13 +144,13 @@ div.#dvBoleta {
       <td height="25"> <table width="738" height="25" border="0" cellpadding="0" cellspacing="0" class="celdir">
           <tbody><tr> 
             <td width="369" height="12"><strong><font size="1" face="Arial, Helvetica, sans-serif">PARCELA: 
-              </font></strong><font size="1" face="Arial, Helvetica, sans-serif">5</font></td>
+              </font></strong><font size="1" face="Arial, Helvetica, sans-serif">{{{$parcela}}}</font></td>
             <td width="369"><strong><font size="1" face="Arial, Helvetica, sans-serif">
               </font></strong><font size="1" face="Arial, Helvetica, sans-serif"></font></td>
           </tr>
           <tr> 
             <td width="369" height="12"><strong><font size="1" face="Arial, Helvetica, sans-serif">VENCIMENTO: 
-              </font></strong><font size="1" face="Arial, Helvetica, sans-serif">08/05/2012</font></td>
+              </font></strong><font size="1" face="Arial, Helvetica, sans-serif">08/{{{$mes}}}/{{{$ano}}}</font></td>
             <td><font size="1" face="Arial, Helvetica, sans-serif">&nbsp;</font></td>
           </tr>
         </tbody></table></td>
@@ -171,14 +171,14 @@ div.#dvBoleta {
                   <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">         4,00</font></div></td>
                 </tr>
                 <tr> 
-                  <td height="12"><font size="1" face="Courier New, Courier, mono">SAAE/MG</font></td>
-                  <td height="12"> <div align="center"><font size="1" face="Courier New, Courier, mono"> </font></div></td>
-                  <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">      -791,20</font></div></td>
-                </tr>
-                <tr> 
                   <td height="12"><font size="1" face="Courier New, Courier, mono">Total</font></td>
                   <td height="12"> <div align="center"><font size="1" face="Courier New, Courier, mono"> </font></div></td>
-                  <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">       201,80</font></div></td>
+                  <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">       993,00</font></div></td>
+                </tr>
+                <tr> 
+                  <td height="12"><font size="1" face="Courier New, Courier, mono">&nbsp;</font></td>
+                  <td height="12"> <div align="center"><font size="1" face="Courier New, Courier, mono">&nbsp;</font></div></td>
+                  <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">&nbsp;</font></div></td>
                 </tr>
                 <tr> 
                   <td height="12"><font size="1" face="Courier New, Courier, mono">&nbsp;</font></td>
@@ -300,37 +300,34 @@ div.#dvBoleta {
                         <td width="90" height="13" class="cel"> <div align="center"><font face="Courier New, Courier, mono"><strong><font size="1">Valor</font></strong></font></div></td>
                         <td width="83" height="13" class="celdir"> <div align="center"><font face="Courier New, Courier, mono"><strong><font size="1">Status</font></strong></font></div></td>
                       </tr>
+                      @for($x = 1; $x <= $parcela; $x++)
                       <tr> 
-                        <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">2012/1</font></div></td>
-                        <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">1</font></div></td>
-                        <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">       201,80</font></div></td>
-                        <td height="12"> <div align="center"><font size="1" face="Courier New, Courier, mono">Baixado</font></div></td>
+                        <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">{{{$ano}}}/{{{$semestre}}}</font></div></td>
+                        <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">{{{$x}}}</font></div></td>
+                        <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">       993,00</font></div></td>
+                        <td height="12"> <div align="center"><font size="1" face="Courier New, Courier, mono">
+                        @if ($x < $parcela)
+                          Baixado
+                        @else
+                          Aberto
+                        @endif
+                        </font></div></td>
                       </tr>
-                      <tr> 
-                        <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">2012/1</font></div></td>
-                        <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">2</font></div></td>
-                        <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">       201,80</font></div></td>
-                        <td height="12"> <div align="center"><font size="1" face="Courier New, Courier, mono">Baixado</font></div></td>
-                      </tr>
-                      <tr> 
-                        <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">2012/1</font></div></td>
-                        <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">3</font></div></td>
-                        <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">       201,80</font></div></td>
-                        <td height="12"> <div align="center"><font size="1" face="Courier New, Courier, mono">Baixado</font></div></td>
-                      </tr>
-                      <tr> 
-                        <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">2012/1</font></div></td>
-                        <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">4</font></div></td>
-                        <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">       201,80</font></div></td>
-                        <td height="12"> <div align="center"><font size="1" face="Courier New, Courier, mono">Baixado</font></div></td>
-                      </tr>
-                      <tr> 
-                        <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">2012/1</font></div></td>
-                        <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">5</font></div></td>
-                        <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">       201,80</font></div></td>
-                        <td height="12"> <div align="center"><font size="1" face="Courier New, Courier, mono">Aberto</font></div></td>
-                      </tr>
-                      <tr> 
+
+                     
+
+                     @endfor
+                     @for($x = 1; $x <= 12 - $parcela; $x++)
+                        <tr> 
+                          <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">&nbsp;</font></div></td>
+                          <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">&nbsp;</font></div></td>
+                          <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">&nbsp;</font></div></td>
+                          <td height="12"> <div align="center"><font size="1" face="Courier New, Courier, mono">&nbsp;</font></div></td>
+                        </tr>
+
+
+                     @endfor
+<!--                       <tr> 
                         <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">&nbsp;</font></div></td>
                         <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">&nbsp;</font></div></td>
                         <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">&nbsp;</font></div></td>
@@ -371,7 +368,7 @@ div.#dvBoleta {
                         <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">&nbsp;</font></div></td>
                         <td height="12"> <div align="right"><font size="1" face="Courier New, Courier, mono">&nbsp;</font></div></td>
                         <td height="12"> <div align="center"><font size="1" face="Courier New, Courier, mono">&nbsp;</font></div></td>
-                      </tr>
+                      </tr> -->
                     </tbody></table></td>
                 </tr>
                 <tr> 
@@ -462,7 +459,7 @@ div.#dvBoleta {
                 </tr>
                 <tr> 
                   <td height="11"><font size="1" face="Arial, Helvetica, sans-serif"><strong> 
-                    1111{{{$fimRa}}}  -{{{$nome}}} / {{{$curso}}} Parc. 5- 2012/1</strong></font></td>
+                    1111{{{$fimRa}}}  -{{{$nome}}} / {{{$curso}}} Parc. {{{$parcela}}}- {{{$ano}}}/{{{$semestre}}}</strong></font></td>
                 </tr>
               </tbody></table></td>
           </tr>
@@ -483,7 +480,7 @@ div.#dvBoleta {
                           VENCIMENTO</font></td>
                       </tr>
                       <tr> 
-                        <td height="11"><div align="right"><font size="1" face="Arial, Helvetica, sans-serif"><strong>08/05/2012</strong></font></div></td>
+                        <td height="11"><div align="right"><font size="1" face="Arial, Helvetica, sans-serif"><strong>08/{{{$mes}}}/{{{$ano}}}</strong></font></div></td>
                       </tr>
                     </tbody></table></td>
                 </tr>
@@ -524,7 +521,7 @@ div.#dvBoleta {
                           PROCESSAMENTO</font></td>
                       </tr>
                       <tr> 
-                        <td height="11"><div align="center"><strong><font size="1" face="Arial, Helvetica, sans-serif">28/03/2012</font></strong></div></td>
+                        <td height="11"><div align="center"><strong><font size="1" face="Arial, Helvetica, sans-serif">01/{{{$mes}}}/{{{$ano}}}</font></strong></div></td>
                       </tr>
                     </tbody></table></td>
                   <td width="185"> <table width="185" height="24" border="0" cellpadding="0" cellspacing="0" class="celdir">
@@ -649,7 +646,7 @@ div.#dvBoleta {
                           DO DOCUMENTO</font></td>
                       </tr>
                       <tr> 
-                        <td height="11"> <div align="right"><font size="1" face="Arial, Helvetica, sans-serif"><strong>     201,80</strong></font></div></td>
+                        <td height="11"> <div align="right"><font size="1" face="Arial, Helvetica, sans-serif"><strong>     993,00</strong></font></div></td>
                       </tr>
                     </tbody></table></td>
                 </tr>
@@ -691,7 +688,7 @@ div.#dvBoleta {
                     VENCIMENTO</font></td>
                 </tr>
                 <tr> 
-                  <td height="11"><div align="right"><font size="1" face="Arial, Helvetica, sans-serif"><strong>08/05/2012</strong></font></div></td>
+                  <td height="11"><div align="right"><font size="1" face="Arial, Helvetica, sans-serif"><strong>08/{{{$mes}}}/{{{$ano}}}</strong></font></div></td>
                 </tr>
               </tbody></table></td>
           </tr>
@@ -729,7 +726,7 @@ div.#dvBoleta {
                     DOCUMENTO</font></td>
                 </tr>
                 <tr> 
-                  <td height="11"> <div align="center"><strong><font size="1" face="Arial, Helvetica, sans-serif">19/04/2012</font></strong></div></td>
+                  <td height="11"> <div align="center"><strong><font size="1" face="Arial, Helvetica, sans-serif">01/{{{$mes}}}/{{{$ano}}}</font></strong></div></td>
                 </tr>
               </tbody></table></td>
             <td width="118"> <table width="118" height="24" border="0" cellpadding="0" cellspacing="0" class="cel">
@@ -764,7 +761,7 @@ div.#dvBoleta {
                     PROCESSAMENTO</font></td>
                 </tr>
                 <tr> 
-                  <td height="11"> <div align="center"><font size="1" face="Arial, Helvetica, sans-serif"><strong><font size="1" face="Arial, Helvetica, sans-serif">28/03/2012</font></strong></font></div></td>
+                  <td height="11"> <div align="center"><font size="1" face="Arial, Helvetica, sans-serif"><strong><font size="1" face="Arial, Helvetica, sans-serif">01/{{{$mes}}}/{{{$ano}}}</font></strong></font></div></td>
                 </tr>
               </tbody></table></td>
             <td width="185"> <table width="185" height="24" border="0" cellpadding="0" cellspacing="0" class="celdir">
@@ -829,7 +826,7 @@ div.#dvBoleta {
                     VALOR DO DOCUMENTO</font></td>
                 </tr>
                 <tr> 
-                  <td height="11"> <div align="right"><font size="1" face="Arial, Helvetica, sans-serif"><strong>     201,80</strong></font></div></td>
+                  <td height="11"> <div align="right"><font size="1" face="Arial, Helvetica, sans-serif"><strong>     993,00</strong></font></div></td>
                 </tr>
               </tbody></table></td>
           </tr>
@@ -954,7 +951,7 @@ div.#dvBoleta {
           </tr>
           <tr> 
             <td height="12"><strong><font size="1" face="Courier New, Courier, mono"><strong> 
-              {{{$nome}}} Parc. 5 - 2012/1</strong></font></strong></td>
+              {{{$nome}}} Parc. {{{$parcela}}} - {{{$ano}}}/{{{$semestre}}}</strong></font></strong></td>
             <td><strong><font size="1" face="Courier New, Courier, mono"><strong>&nbsp;</strong></font></strong></td>
           </tr>
           <tr> 
