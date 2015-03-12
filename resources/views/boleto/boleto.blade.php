@@ -18,7 +18,12 @@
 </head><body><form name="frmFormulario" action="" target="" method="">
 
 
-  <table border="0"><tbody><tr><td align="left" valign="bottom" id="divimgImprimir"><img class="" title="Botao Imprimir" style="cursor:pointer;" dir="" lang="" id="imgImprimir" src="/assets/img/botn_imprimir.gif" alt="Botao Imprimir" onclick="imprimir()" name="imgImprimir" border="0"></td><td align="left" valign="bottom" id="divimgFechar"><img class="" style="cursor:pointer" dir="" lang="" id="imgFechar" src="/assets/img/botn_fechar.gif" onclick="window.close()" name="imgFechar" border="0"></td>
+  <table border="0"><tbody><tr>
+  <td align="left" valign="bottom" id="divimgImprimir"><img class=""  dir="" lang="" id="imgImprimir"   name="imgImprimir" border="0"> <img src="/assets/img/botn_imprimir.gif" alt="" onclick="imprimir()" style="cursor:pointer;"></td>
+  
+  
+  <td align="left" valign="bottom" id="divimgFechar"><img class="" style="cursor:pointer" dir="" lang="" id="imgFechar" name="imgFechar" border="0"> <a href="/boleto/gerar"><img src="/assets/img/botn_fechar.gif" alt=""> </a>  </td>
+ 
   </tr></tbody></table>
   <table border="0"><tbody><tr><td align="left" valign="bottom" id="divspnBoleta"><span id="spnBoleta" class="" dir="" lang="">
 <style type="text/css">

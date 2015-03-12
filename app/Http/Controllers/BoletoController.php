@@ -37,6 +37,7 @@ class BoletoController extends Controller {
 	{
 
 		$dadosFormulario =\Request::input();
+		$titulo = 'Imprimir boleto';
 
 		$rules = array('nome' => 'required|min:10',
 						'cpf' => 'required|min:11|max:14',
@@ -137,12 +138,13 @@ class BoletoController extends Controller {
 		return view('boleto/boleto',compact('nomIes','cedenteIes','nomeImagemIes',
 											'curso','nome','endereco','cep',
 											'cidade','estado','ano','mes','parcela',
-											'semestre','fimRa','cpf','campus'));
+											'semestre','fimRa','cpf','campus','titulo'));
 	}
 
 	public function getGerar()
 	{
-		return view('boleto/gerar');
+		$titulo = 'Imprimir boleto';
+		return view('boleto/gerar',compact('titulo'));
 	}	
 
 }
