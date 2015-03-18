@@ -135,7 +135,7 @@ div.#dvBoleta {
             <td height="12"><strong><font size="1" face="Arial, Helvetica, sans-serif">CAMPUS:</font></strong><font size="1" face="Arial, Helvetica, sans-serif"> 
               {{{$campus}}}         </font></td>
             <td><strong><font size="1" face="Arial, Helvetica, sans-serif">OCORRÊNCIA: 
-              </font></strong><font size="1" face="Arial, Helvetica, sans-serif">Primeiro Período</font></td>
+              </font></strong><font size="1" face="Arial, Helvetica, sans-serif">Segundo Período</font></td>
           </tr>
           <tr> 
             <td height="12"><strong><font size="1" face="Arial, Helvetica, sans-serif">PERÍODO 
@@ -500,7 +500,7 @@ div.#dvBoleta {
                           DOCUMENTO</font></td>
                       </tr>
                       <tr> 
-                        <td height="11"> <div align="center"><strong><font size="1" face="Arial, Helvetica, sans-serif">180950            </font></strong></div></td>
+                        <td height="11"> <div align="center"><strong><font size="1" face="Arial, Helvetica, sans-serif">170730            </font></strong></div></td>
                       </tr>
                     </tbody></table></td>
                   <td width="162"> <table width="162" height="24" border="0" cellpadding="0" cellspacing="0" class="cel">
@@ -671,7 +671,7 @@ div.#dvBoleta {
           <tbody><tr> 
             <td width="202" height="22" class="cel"><strong><font size="2" face="Arial, Helvetica, sans-serif">HSBC</font></strong></td>
             <td width="121" class="cel"> <div align="center"><font size="2"><strong><font size="4" face="Arial, Helvetica, sans-serif">399-9</font></strong></font></div></td>
-            <td width="415" class="celdir"><div align="center"><font size="2"><strong><font face="Arial, Helvetica, sans-serif">39991.74950 15370.319269 00262.050016 9 53270000020180</font></strong></font></div></td>
+            <td width="415" class="celdir"><div align="center"><font size="2"><strong><font face="Arial, Helvetica, sans-serif">39991.74950 19230.309146 00262.050016 9 53270000020180</font></strong></font></div></td>
           </tr>
         </tbody></table></td>
     </tr>
@@ -740,7 +740,7 @@ div.#dvBoleta {
                     DOCUMENTO </font></td>
                 </tr>
                 <tr> 
-                  <td height="11"><div align="center"><font size="1" face="Arial, Helvetica, sans-serif"><strong><font size="1" face="Arial, Helvetica, sans-serif">180950            </font></strong></font></div></td>
+                  <td height="11"><div align="center"><font size="1" face="Arial, Helvetica, sans-serif"><strong><font size="1" face="Arial, Helvetica, sans-serif">170730            </font></strong></font></div></td>
                 </tr>
               </tbody></table></td>
             <td width="118"> <table width="118" height="24" border="0" cellpadding="0" cellspacing="0" class="cel">
