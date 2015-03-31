@@ -20,6 +20,7 @@ class BoletoController extends Controller {
 	 */
 	public function __construct()
 	{
+		
 		$this->middleware('auth');
 	}
 
@@ -30,11 +31,12 @@ class BoletoController extends Controller {
 	 */
 	public function getIndex()
 	{
-		return view('welcome');
+		return \Redirect::to('boleto\gerar');
 	}
 
 	public function postGerar()
 	{
+		dd('teste');
 
 		$dadosFormulario =\Request::input();
 		$titulo = 'Imprimir boleto';
@@ -143,7 +145,9 @@ class BoletoController extends Controller {
 
 	public function getGerar()
 	{
+		$this->middleware('guest');
 		$titulo = 'Imprimir boleto';
+
 		return view('boleto/gerar',compact('titulo'));
 	}	
 

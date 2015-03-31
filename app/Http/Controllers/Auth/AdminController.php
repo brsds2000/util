@@ -4,8 +4,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
 
-class AuthController extends Controller {
+class AdminController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -18,7 +19,6 @@ class AuthController extends Controller {
 	|
 	*/
 
-	use AuthenticatesAndRegistersUsers;
 
 	/**
 	 * Create a new authentication controller instance.
@@ -32,8 +32,33 @@ class AuthController extends Controller {
 		$this->auth = $auth;
 		$this->registrar = $registrar;
 
-		$this->middleware('guest', ['except' => ['getLogout','getRegister']]);
-		$this->middleware('admin', ['only' => 'getRegister']);
+		$this->middleware('admin');
+
 	}
+	/**
+	 * Handle a registration request for the application.
+	 *
+	 * @param  \Illuminate\Foundation\Http\FormRequest  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function postRegister(Request $request)
+	{
+
+		$validator = $this->registrar->validator($request->all());
+
+		if ($validator->fails())
+		{
+			$this->throwValidationException(
+				$request, $validator
+			);
+		}
+
+		$this->registrar->create($request->all());
+		$mensagem = 'Usuário criado com sucesso';
+
+		return $mensagem;
+	}
+
+
 
 }

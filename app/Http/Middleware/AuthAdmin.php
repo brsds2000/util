@@ -3,7 +3,7 @@
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
-class Authenticate {
+class AuthAdmin {
 
 	/**
 	 * The Guard implementation.
@@ -45,8 +45,8 @@ class Authenticate {
 		}
 		$user = $this->auth->user();
 
-		//dd($user->indativo);
-		if($user->indativo != 'S'){
+		//dd($user->indadm);
+		if($user->indadm != 'S'){
 
 				return redirect()->guest('proibido');
 			

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> {{{$titulo}}} </title>
+	<title> 
+
+ Gerar</title>
 	<link href="/css/bootstrap.css" rel="stylesheet">
 	<link href="/css/config.css" rel="stylesheet">
 	
@@ -18,11 +20,18 @@
             </button>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
+          @if (!Auth::guest())  
             <ul class="nav navbar-nav">
-              <li><a href="#"> Nome de usuário ou login</a></li>
+              <li><a href="#"> {{{ Auth::user()->name }}}</a></li>
               <li><a href="#">Trocar de senha</a></li>
-              <li><a href="#">Sair</a></li>
+              <li><a href="/auth/logout">Sair</a></li>
             </ul>
+          @endif
+          @if (!Auth::guest()) 
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/auth/login">Admin</a></li>
+            </ul>
+          @endif
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>

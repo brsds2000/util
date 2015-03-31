@@ -20,7 +20,7 @@ class AutenticaController extends Controller {
 	 */
 	public function __construct()
 	{
-		
+		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
 	/**
@@ -33,6 +33,13 @@ class AutenticaController extends Controller {
 		$titulo = 'Login';
 
 		return view('autentica.login',compact('titulo'));
+	}
+
+	public function getLogout()
+	{
+		$this->auth->logout();
+
+		return redirect('/');
 	}
 
 
