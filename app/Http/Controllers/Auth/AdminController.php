@@ -5,6 +5,7 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller {
 
@@ -59,6 +60,19 @@ class AdminController extends Controller {
 		return $mensagem;
 	}
 
+
+	public function getIndex()
+	{
+		
+		$users = DB::table('users')->get();
+
+		// foreach ($users as $user)
+		// {
+		//     var_dump($user->name);
+		// }
+
+		return view('admin/index',compact('users'));
+	}	
 
 
 }

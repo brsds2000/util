@@ -36,7 +36,7 @@ class BoletoController extends Controller {
 
 	public function postGerar()
 	{
-		dd('teste');
+		//dd('teste');
 
 		$dadosFormulario =\Request::input();
 		$titulo = 'Imprimir boleto';

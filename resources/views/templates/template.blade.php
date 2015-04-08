@@ -5,7 +5,11 @@
 
  Gerar</title>
 	<link href="/css/bootstrap.css" rel="stylesheet">
+  <link href="/css/dataTables.bootstrap.css" rel="stylesheet">
 	<link href="/css/config.css" rel="stylesheet">
+  <script src="/js/jquery-1.11.2.min.js"></script>
+  <script src="/js/jquery.dataTables.min.js"></script>
+  <script src="/js/dataTables.bootstrap.js"></script>
 	
 </head>
 <body>
@@ -22,14 +26,14 @@
           <div id="navbar" class="navbar-collapse collapse">
           @if (!Auth::guest())  
             <ul class="nav navbar-nav">
-              <li><a href="#"> {{{ Auth::user()->name }}}</a></li>
+              <li><a href="/"> {{{ Auth::user()->name }}}</a></li>
               <li><a href="#">Trocar de senha</a></li>
               <li><a href="/auth/logout">Sair</a></li>
             </ul>
           @endif
           @if (!Auth::guest()) 
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/auth/login">Admin</a></li>
+              <li><a href="/admin/index">Admin</a></li>
             </ul>
           @endif
           </div><!--/.nav-collapse -->
