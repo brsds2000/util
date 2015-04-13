@@ -38,7 +38,7 @@
 		        @foreach ($users as $user)
 		        	<tr>
 		        	<a href="/admin/teste">
-		                <td><a href="/admin/usuario/{{{$user->id}}}"> {{{$user->name}}} </a></td>
+		                <td><a href="/admin/profile/{{{$user->id}}}"> {{{$user->name}}} </a></td>
 		                <td>{{{$user->email}}}</td>
 		                <td> {{{ ($user->indativo == 'S' ? 'Sim' : 'Não' ) }}} </td>
 		                <td> {{{ ($user->indadm == 'S' ? 'Sim' : 'Não' ) }}} </td>

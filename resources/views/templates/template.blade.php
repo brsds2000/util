@@ -27,7 +27,7 @@
           @if (!Auth::guest())  
             <ul class="nav navbar-nav">
               <li><a href="/"> {{{ Auth::user()->name }}}</a></li>
-              <li><a href="#">Trocar de senha</a></li>
+              <li><a href="/senha/index">Trocar de senha</a></li>
               <li><a href="/auth/logout">Sair</a></li>
             </ul>
           @endif

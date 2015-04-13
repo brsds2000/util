@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class AdminController extends Controller {
+class SenhaController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -33,7 +33,7 @@ class AdminController extends Controller {
 		$this->auth = $auth;
 		$this->registrar = $registrar;
 
-		$this->middleware('admin');
+		$this->middleware('auth');
 
 	}
 	/**
@@ -42,47 +42,46 @@ class AdminController extends Controller {
 	 * @param  \Illuminate\Foundation\Http\FormRequest  $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function postRegister(Request $request)
+	public function postIndex(Request $request)
 	{
+		$dadosFormulario = $request->input();
 
-		$validator = $this->registrar->validator($request->all());
 
-		if ($validator->fails())
-		{
-			$this->throwValidationException(
-				$request, $validator
-			);
+
+		//dd($request);
+		if ($dadosFormulario['password'] != $dadosFormulario['passwordConfirm']) {
+			return redirect('senha/index')
+						->withErrors([
+							'password' => 'Senhas não conferem',
+						]);
 		}
 
-		$this->registrar->create($request->all());
-		$mensagem = 'Usuário criado com sucesso';
+		$user = $this->auth->user();
 
-		return $mensagem;
+		//dd($user);
+
+		$user->password = bcrypt($dadosFormulario['password']);
+
+		$user->save();
+
+		
+		$mensagem = 'Senha alterada com sucesso';
+
+		return redirect('/');
 	}
-
 
 	public function getIndex()
 	{
 		
-		$users = DB::table('users')->get();
+		// $users = DB::table('users')->get();
 
 		// foreach ($users as $user)
 		// {
 		//     var_dump($user->name);
 		// }
 
-		return view('admin/index',compact('users'));
+		return view('senha/index');
 	}	
 
-
-	public function getProfile($idUser)
-	{
-
-		$user = DB::table('users')->where('id', $idUser)->first();
-
-
-		dd($user);
-		return $mensagem;
-	}
 
 }

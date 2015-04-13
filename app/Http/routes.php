@@ -22,5 +22,6 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 	'boleto' => 'boletoController',
 	'autentica' => 'autenticaController',
-	'admin' => 'Auth\adminController'
+	'admin' => 'Auth\adminController',
+	'senha' => 'Auth\senhaController'
 ]);
