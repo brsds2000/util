@@ -47,7 +47,7 @@ class SenhaController extends Controller {
 		$dadosFormulario = $request->input();
 
 
-		$validator = Validator::make($dadosFormulario,[
+		$validator = \Validator::make($dadosFormulario,[
 			'password' => 'required||min:6']);
 
 		if ($validator->fails())
