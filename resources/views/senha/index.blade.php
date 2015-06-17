@@ -7,6 +7,14 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Troca de senha</div>
 				<div class="panel-body">
+
+					@if(Session::has('message'))
+						<div class="alert alert-info">
+							<strong>{{ Session::get('message') }}</strong>
+						</div>
+					@endif
+
+
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
 							<strong>Whoops!</strong> Algo errado <br><br>
