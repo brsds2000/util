@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use App\LogBoleto;
+use Illuminate\Contracts\Auth\Guard;
 class BoletoController extends Controller {
 
 	/*
@@ -18,9 +20,9 @@ class BoletoController extends Controller {
 	 *
 	 * @return void
 	 */
-	public function __construct()
+	public function __construct(Guard $auth)
 	{
-		
+		$this->auth = $auth;
 		$this->middleware('auth');
 	}
 
@@ -81,12 +83,13 @@ class BoletoController extends Controller {
 			$cedenteIes = 'IMEC - Instituto Mineiro de Educação e Cultura UNI-BH S/A';
 			$nomeImagemIes = 'unibh.jpg';
 			$campus = 'ES';
+			$sglIes = 'Uni-bh';
 		}else{
-			$nomIes = 'Alterar para nome completo sao judas';
-			$cedenteIes = 'Alterar para cedente são judas';
-			$nomeImagemIes = 'saojudas.jpg';
-			$campus = 'CA';
-
+			$nomIes = 'Universidade São Judas Tadeu';
+			$cedenteIes = 'AMC - SERVIÇOS EDUCACIONAIS LTDA';
+			$nomeImagemIes = 'usjt.jpg';
+			$campus = 'MC';
+			$sglIes = 'São Judas';
 		}
 
 
@@ -122,19 +125,21 @@ class BoletoController extends Controller {
 
 		$fimRa = rand(1999, 7999);
 
-
+		//dd($this->auth->user()->id);
 		
-		//print('</br> ano'. $ano);
-		//print('</br> mes'. $mes);
-		//print('</br> parcela'. $parcela);
-		//print('</br> semestre'. $semestre);
-		//print('</br> fimRa'. $fimRa);
+		LogBoleto::create([
+			'user_id' => $this->auth->user()->id,
+			'nome' => $nome,
+			'cpf' => $cpf,
+			'endereco' => $endereco,
+			'cep' => $cep,
+			'cidade' => $cidade, 
+			'estado' => $estado,
+			'instituicao' => $sglIes
+		]);
 
-		//dd();
 
-		// Matricula randômica
 
-		//Data atraves da data atual
 
 
 		return view('boleto/boleto',compact('nomIes','cedenteIes','nomeImagemIes',

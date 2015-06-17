@@ -33,7 +33,8 @@ class Registrar implements RegistrarContract {
 			'name' => $data['name'],
 			'email' => $data['email'],
 			'password' => bcrypt($data['password']),
-			'indativo' => $data['indativo']
+			'indativo' => (empty($data['indativo']) ? 'N' : 'S' ),
+			'indadm' => (empty($data['indadm']) ? 'N' : 'S' ),
 		]);
 	}
 

@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Validator;
+use App\User;
 
 class AdminController extends Controller {
 
@@ -57,7 +59,7 @@ class AdminController extends Controller {
 		$this->registrar->create($request->all());
 		$mensagem = 'Usuário criado com sucesso';
 
-		return $mensagem;
+		return redirect('admin/index')->with('message', $mensagem);
 	}
 
 
@@ -81,8 +83,96 @@ class AdminController extends Controller {
 		$user = DB::table('users')->where('id', $idUser)->first();
 
 
-		dd($user);
-		return $mensagem;
+		//dd($user);
+		return view('admin/profile',compact('user'));
+	}
+
+	public function getLogboleto($idUser)
+	{
+
+		$logBoleto = DB::table('log_boleto')->where('user_id', $idUser)->orderBy('created_at','desc')->get();;
+		$user = DB::table('users')->where('id', $idUser)->first();
+
+		//dd($logBoleto);
+		return view('admin/logboleto',compact('logBoleto','user'));
+	}
+
+	public function getLogboletogeral()
+	{
+
+		$logBoleto = DB::table('log_boleto')
+		->join('users', 'users.id', '=', 'log_boleto.user_id')
+		->orderBy('log_boleto.created_at','desc')->get();;
+		//$user = DB::table('users')->where('id', $idUser)->first();
+
+		dd($logBoleto);
+		return view('admin/logboletogeral',compact('logBoleto'));
+	}
+
+	public function postProfile(Request $request)
+	{
+		$userForm = $request->all();
+
+		$validator = Validator::make($userForm,[
+			'name' => 'required|max:255']);
+
+		if ($validator->fails())
+		{
+			$this->throwValidationException(
+				$request, $validator
+			);
+		}
+
+		//$user = DB::table('users')->where('id', $userForm['id'])->first();
+		$user = User::find($userForm['id']);
+		//dd($userForm);
+		$user->name = $userForm['name'];
+		$user->indAtivo = (empty($user->indativo) ? 'N' : 'S' );
+		$user->indAdm = (empty($user->indadm) ? 'N' : 'S' );
+
+		$user->save();
+		$mensagem = 'Usuário alterado com sucesso';
+
+		return redirect('admin/profile/'.$userForm['id'])->with('message', $mensagem);
+	}
+
+	public function postSenha(Request $request)
+	{
+		$userForm = $request->all();
+
+		$validator = Validator::make($userForm,[
+			'password' => 'required||min:6']);
+
+		if ($validator->fails())
+		{
+			return response()->json(['status' => 'nok', 'msg' => 'Senha inválida']);
+		}
+
+		if ($userForm['password'] != $userForm['password_confirmation']) {
+			return response()->json(['status' => 'nok', 'msg' => 'Senhas não conferem']);
+		}
+
+
+		$user = $this->auth->user();
+
+		//dd($user);
+
+		$user->password = bcrypt($userForm['password']);
+
+		$user->save();
+		$mensagem = 'Senha alterada com sucesso';
+
+		return response()->json(['status' => 'ok', 'msg' => $mensagem]);
+	}
+
+	public function getRemover($idUser)
+	{
+
+		$user = User::find($idUser);
+		$user->delete();
+		$mensagem = 'Usuário removido com sucesso';
+		//dd($user);
+		return redirect('admin/index')->with('message', $mensagem);
 	}
 
 }

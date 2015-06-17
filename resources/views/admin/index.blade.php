@@ -20,19 +20,20 @@
 		<div class="col-md-8 col-md-offset-0">
 
 
-			@if (isset($mensagem))
-				<div class="alert alert-danger">
-					<strong>$mensagem</strong>
+
+			@if(Session::has('message'))
+				<div class="alert alert-info">
+					<strong>{{ Session::get('message') }}</strong>
 				</div>
 			@endif
 
-			<table id="tblusuarios" class="table table-striped table-bordered" cellspacing="0" width="100%">
+			<table id="tblusuarios" class="table" cellspacing="0" width="100%">
 		        <thead>
 		            <tr>
 		                <th>Nome</th>
 		                <th>E-mail</th>
 		                <th>Ativo</th>
-		                <th>Adminstrador</th>
+		                <th>Administrador</th>
 		            </tr>
 		        </thead>
 		        @foreach ($users as $user)
@@ -51,6 +52,14 @@
 		    <a href="/auth/register">
 			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Inserir
 			</a>
+			<div class="row">
+				<a href="/admin/logboletogeral">
+					<button type="button" class="btn btn-info">
+						Log de geração de boleto
+					</button>
+				</a>	
+			</div>
+
 		</div>
 	</div>
 </div>

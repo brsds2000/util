@@ -20,8 +20,8 @@ Route::get('proibido', 'HomeController@proibido');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
-	'boleto' => 'boletoController',
-	'autentica' => 'autenticaController',
-	'admin' => 'Auth\adminController',
-	'senha' => 'Auth\senhaController'
+	'boleto' => 'BoletoController',
+	'autentica' => 'AutenticaController',
+	'admin' => 'Auth\AdminController',
+	'senha' => 'Auth\SenhaController'
 ]);

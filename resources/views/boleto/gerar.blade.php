@@ -9,6 +9,13 @@
 	  <div class="panel-heading">
 	    <h3 class="panel-title">Gerar</h3>
 	  </div>
+
+			@if(Session::has('message'))
+				<div class="alert alert-info">
+					<strong>{{ Session::get('message') }}</strong>
+				</div>
+			@endif
+	  
 	  <div class="panel-body">
 
 		{!! Form::open(array('url' => 'boleto/gerar')) !!}

@@ -47,7 +47,15 @@ class SenhaController extends Controller {
 		$dadosFormulario = $request->input();
 
 
+		$validator = Validator::make($dadosFormulario,[
+			'password' => 'required||min:6']);
 
+		if ($validator->fails())
+		{
+			$this->throwValidationException(
+				$request, $validator
+			);
+		}
 		//dd($request);
 		if ($dadosFormulario['password'] != $dadosFormulario['passwordConfirm']) {
 			return redirect('senha/index')
@@ -67,7 +75,7 @@ class SenhaController extends Controller {
 		
 		$mensagem = 'Senha alterada com sucesso';
 
-		return redirect('/');
+		return redirect('/senha/index')->with('message', $mensagem);
 	}
 
 	public function getIndex()
