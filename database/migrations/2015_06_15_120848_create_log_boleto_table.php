@@ -26,7 +26,7 @@ class CreateLogBoletoTable extends Migration {
      		$table->string('cidade');
 			$table->string('estado');
 			$table->string('instituicao');
-			$table->timestamps();
+			$table->nullableTimestamps();
 		});
 	}
 

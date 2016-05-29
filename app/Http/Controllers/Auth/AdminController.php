@@ -102,10 +102,18 @@ class AdminController extends Controller {
 
 		$logBoleto = DB::table('log_boleto')
 		->join('users', 'users.id', '=', 'log_boleto.user_id')
-		->orderBy('log_boleto.created_at','desc')->get();;
+		->orderBy('log_boleto.created_at','desc')
+		->select('log_boleto.created_at', 'users.name', 'log_boleto.nome','log_boleto.cpf','log_boleto.endereco','log_boleto.cep','log_boleto.cidade','log_boleto.estado'
+		,'log_boleto.instituicao')->get();
+
+
+
+		
+
+		//->select('')
 		//$user = DB::table('users')->where('id', $idUser)->first();
 
-		dd($logBoleto);
+		//dd($logBoleto);
 		return view('admin/logboletogeral',compact('logBoleto'));
 	}
 
@@ -152,8 +160,8 @@ class AdminController extends Controller {
 			return response()->json(['status' => 'nok', 'msg' => 'Senhas não conferem']);
 		}
 
-
-		$user = $this->auth->user();
+		$user = User::find($userForm['id']);
+		//$user = $this->auth->user();
 
 		//dd($user);
 
