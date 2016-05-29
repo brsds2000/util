@@ -135,8 +135,10 @@ class AdminController extends Controller {
 		$user = User::find($userForm['id']);
 		//dd($userForm);
 		$user->name = $userForm['name'];
-		$user->indAtivo = (empty($user->indativo) ? 'N' : 'S' );
-		$user->indAdm = (empty($user->indadm) ? 'N' : 'S' );
+		$user->indAtivo = (empty($userForm['indativo']) ? 'N' : 'S' );
+		$user->indAdm = (empty($userForm['indadm']) ? 'N' : 'S' );
+
+		//dd($user->indAdm);
 
 		$user->save();
 		$mensagem = 'Usuário alterado com sucesso';
