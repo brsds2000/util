@@ -13,8 +13,8 @@ return [
 	|
 	*/
 
-	'debug' => true,
-	// 'debug' => env('APP_DEBUG'),
+	//'debug' => true,
+	'debug' => env('APP_DEBUG'),
 	/*
 	|--------------------------------------------------------------------------
 	| Application URL

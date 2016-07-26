@@ -30,7 +30,7 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-		return \Redirect::to('boleto\gerar');
+		return \Redirect::to('boleto/gerar');
 		//return view('welcome');
 	}
 
